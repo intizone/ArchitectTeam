@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <!-- BEGIN HEAD -->
+    <head>
+        <meta charset="utf-8"/>
+        <title>Blog</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <meta content="" name="description"/>
+        <meta content="" name="author"/>
+
+        <!-- GLOBAL MANDATORY STYLES -->
+        <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+        <link href="{% static 'vendor/simple-line-icons/simple-line-icons.min.css' %}" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
+
+        <!-- PAGE LEVEL PLUGIN STYLES -->
+        <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+        <link href="{% static 'vendor/swiper/css/swiper.min.css' %}" rel="stylesheet" type="text/css"/>
+
+        <!-- THEME STYLES -->
+        <link href="{% static 'css/layout.min.css' %}" rel="stylesheet" type="text/css"/>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="{% static 'favicon.ico' %}"/>
+    </head>
+    <!-- END HEAD -->
+
+    <!-- BODY -->
+    <body>
+
+        <!--========== HEADER ==========-->
+        <header class="header navbar-fixed-top">
+            <!-- Navbar -->
+            <nav class="navbar" role="navigation">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="menu-container">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="toggle-icon"></span>
+                        </button>
+
+                        <!-- Logo -->
+                        <div class="logo">
+                            <a class="logo-wrap" href="{% url 'index' %}">
+                                <img class="logo-img logo-img-main" src="{% static 'img/logo.png' %}" alt="Asentus Logo">
+                                <img class="logo-img logo-img-active" src="{% static 'img/logo-dark.png' %}" alt="Asentus Logo">
+                            </a>
+                        </div>
+                        <!-- End Logo -->
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse nav-collapse">
+                        <div class="menu-container">
+                            <ul class="navbar-nav navbar-nav-right">
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover active" href="{% url 'index' %}">Bosh sahifa</a></li>
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{% url 'service' %}">Xizmatlar</a></li>
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{% url 'blog' %}">Blog</a></li>
+                                <li class="nav-item"><a class="nav-item-child nav-item-hover" href="{% url 'contact' %}">Aloqa</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Navbar Collapse -->
+                </div>
+            </nav>
+            <!-- Navbar -->
+        </header>
+        <!--========== END HEADER ==========-->
+
+        <!--========== PARALLAX ==========-->
+        <div class="parallax-window" data-parallax="scroll" data-image-src="{% static 'img/1920x1080/01.jpg' %}">
+            <div class="parallax-content container">
+                <h1 class="carousel-title">blog</h1>
+                <p>Jamoa haqida ko'proq bilib oling va<br/>Muntazam yangiliklarimizdan boxabar bo'ling.</p>
+            </div>
+        </div>
+        <!--========== PARALLAX ==========-->
+
+        <!--========== PAGE LAYOUT ==========-->
+
+
+
+
+        <!-- About -->
+        <div class="content-lg container">
+            <div class="row margin-b-20">
+                <div class="col-sm-6">
+                    <h2>Biz kimmiz ?</h2>
+                </div>
+            </div>
+            <!--// end row -->
+
+            <div class="row">
+                <div class="col-sm-7 sm-margin-b-50">
+                    <div class="margin-b-30">
+                        <p>ASENTUS - arxitektura va dizayn firmasi bo'lib, odamlar foydalanishi va saqlamoqchi bo'lgan muhitlarni yaratish tarixiga ega. Biz chuqur tajriba va intizomlararo hamkorlikni talab qiladigan murakkab loyihalar o'rtasida muvaffaqiyat qozonamiz. 20 yil davomida sezgir dizayn bizning asosiy falsafamiz bo'lib, har bir loyihaning har bir detaliga o'ziga xos ijodiy javob beradi.</p>
+                    </div>
+                    <p>Shahar hamjamiyatini jonlantiramizmi yoki sokin boshpana yaratamizmi, biz xotira va kashfiyot hissi bilan aks-sado beradigan joylarni loyihalashga intilamiz. Kompaniyaning fikricha, har bir loyiha - mavjud binolardan moslashtirilgan qayta foydalanishdan tortib, yangi qurilishgacha - haqiqiy materiallarni tabiiy holatida ochish va nishonlash imkoniyatini beradi.</p>
+                </div>
+                <div class="col-sm-4 col-sm-offset-1">
+                    <img class="img-responsive" src="{% static 'img/640x380/01.jpg' %}" alt="Our Office">
+                </div>
+            </div>
+            <!--// end row -->
+        </div>
+        <!-- End About -->
+
+        <!-- Team -->
+        <div class="bg-color-sky-light">
+            <div class="content-lg container">
+                <div class="row margin-b-40">
+                    <div class="col-sm-6">
+                        <h2>Jamoa bilan tanishing</h2>
+                        <p>2015-yilda o'z faoliyatini yurita boshlagan Asentus jamoamizning asoschisi Hames Milner. Quyida jamoaning eng asosiy a'zolari haqida ma'limot olishingiz mumkin.</p>
+                    </div>
+                </div>
+                <!--// end row -->
+
+                <div class="row">
+                    <!-- Team -->
+                    {% for member in members %}
+                    <div class="col-sm-4 sm-margin-b-50">
+                        <div class="bg-color-white margin-b-20">
+                            <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">
+                                <img class="img-responsive" src="{{member.image.url}}" alt="Team Image">
+                            </div>
+                        </div>
+                        <h4><a>{{member.name}}</a> <span class="text-uppercase margin-l-20">{{member.position}}</span></h4>
+                        <p>{{member.description}}</p>
+                    </div>
+                    {% endfor %}
+                    <!-- End Team -->
+
+
+                </div>
+                <!--// end row -->
+            </div>
+        </div>
+        <!-- End Team -->
+        <!--========== END PAGE LAYOUT ==========-->
+
+        <footer class="footer">
+
+
+            <!-- Copyright -->
+            <div class="content container">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <img class="footer-logo" src="{% static 'img/logo.png' %}" alt="Asentus Logo">
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        <p class="margin-b-0"><a class="color-base fweight-700" href="http://keenthemes.com/preview/asentus/">Asentus</a> Theme Powered by: <a class="color-base fweight-700" href="http://www.keenthemes.com/">KeenThemes.com</a></p>
+                    </div>
+                </div>
+                <!--// end row -->
+            </div>
+            <!-- End Copyright -->
+        </footer>
+
+        <!-- Back To Top -->
+        <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
+
+        <!-- JAVASCRIPTS(Load javascripts at the bottom, this will reduce page load time) -->
+        <!-- CORE PLUGINS -->
+        <script src="{% static 'vendor/jquery.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'vendor/jquery-migrate.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}" type="text/javascript"></script>
+
+        <!-- PAGE LEVEL PLUGINS -->
+        <script src="{% static 'vendor/jquery.easing.js' %}" type="text/javascript"></script>
+        <script src="{% static 'vendor/jquery.back-to-top.js' %}" type="text/javascript"></script>
+        <script src="{% static 'vendor/jquery.smooth-scroll.js' %}" type="text/javascript"></script>
+        <script src="{% static 'vendor/jquery.wow.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'vendor/jquery.parallax.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'vendor/swiper/js/swiper.jquery.min.js' %}" type="text/javascript"></script>
+
+        <!-- PAGE LEVEL SCRIPTS -->
+        <script src="{% static 'js/layout.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/components/wow.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/components/swiper.min.js' %}" type="text/javascript"></script>
+
+    </body>
+    <!-- END BODY -->
+</html>
